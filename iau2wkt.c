@@ -141,9 +141,9 @@ int main(int argc, char * argv[])
 				fprintf(f1, "#IAU%d WKT Codes for %s\n", theYear, theTarget);
 	
 				int gisCode = theNaifNum * 100;
-				fprintf(f1, "%d,GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f, %f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 1;
-				fprintf(f1, "%d,GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f, %f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 	
 				/*#Static Projections*/
 				gisCode = theNaifNum * 100 + 10; /*# Equirectangular, ocentric, clon=0*/
