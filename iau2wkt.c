@@ -34,7 +34,7 @@
 */
 
 void usage(){
-	printf("usage:\n\tiau2wkt naifcodes_radii_m_wAsteroids_IAU2000.csv outputFileName.wtk\n");
+	printf("usage:\n\tiau2wkt naifcodes_radii_m_wAsteroids_IAU2000.csv outputFileName.wtk outputFileName.proj4\n");
 }
 
 const char* getfield(char* line, int num)
@@ -67,6 +67,7 @@ int main(int argc, char * argv[])
 	/*printf("theYear = %d\n",theYear);*/
 	/*Check if the Year has been found from filename*/
 	FILE *f1 = fopen(argv[2], "w") ;
+	FILE *f2 = fopen(argv[3], "w") ;
 	if ( theYear ){
 		/*Open output file for writing*/
 		fprintf(f1, "#IAU%i WKT Codes\n", theYear);
@@ -257,5 +258,6 @@ int main(int argc, char * argv[])
 	}
 	fclose(stream);
 	fclose(f1);
+	fclose(f2);
 	return(EXIT_SUCCESS);
 }
