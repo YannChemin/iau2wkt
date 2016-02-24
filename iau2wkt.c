@@ -34,7 +34,7 @@
 */
 
 void usage(){
-	printf("usage:\n\tiau2wkt naifcodes_radii_m_wAsteroids_IAU2000.csv outputFileName.wtk outputFileName.proj4\n");
+	printf("usage:\n\tiau2wkt naifcodes_radii_m_wAsteroids_IAU2000.csv outputFileName.wtk\n");
 }
 
 const char* getfield(char* line, int num)
@@ -67,7 +67,6 @@ int main(int argc, char * argv[])
 	/*printf("theYear = %d\n",theYear);*/
 	/*Check if the Year has been found from filename*/
 	FILE *f1 = fopen(argv[2], "w") ;
-	FILE *f2 = fopen(argv[3], "w") ;
 	if ( theYear ){
 		/*Open output file for writing*/
 		fprintf(f1, "#IAU%i WKT Codes\n", theYear);
@@ -78,8 +77,6 @@ int main(int argc, char * argv[])
 	}
 	/*Read input file line by line*/
 	char line[1024];
-	char bigline[1024];
-	char tosystem[1024];
 
 	int theNaifNum = 0;
 	char * theTarget = NULL;
@@ -150,18 +147,13 @@ int main(int argc, char * argv[])
 	
 				/*#Static Projections*/
 				gisCode = theNaifNum * 100 + 10; /*# Equirectangular, ocentric, clon=0*/
-				sprintf(bigline, "%d,PROJCS[\"%s_Equidistant_Cylindrical\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equidistant_Cylindrical\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
-				fprintf(f1,"%s",bigline);
-				fprintf(f2,"# Equirectangular, ocentric, clon=0\n");
-				fprintf(f2,"<%d> ",gisCode);
-				sprintf(tosystem,"echo $(gdalsrsinfo %s -o proj4) >> %s", bigline, argv[3]);
-				system(tosystem);
+				fprintf(f1,"%d,PROJCS[\"%s_Equidistant_Cylindrical\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equirectangular\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 11; /*# Equirectangular, ographic, clon=0*/
-				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equidistant_Cylindrical\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equirectangular\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 12; /*# Equirectangular, ocentric, clon=180*/
-				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equidistant_Cylindrical\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equirectangular\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 13; /*# Equirectangular, ographic, clon=180*/
-				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equidistant_Cylindrical\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equirectangular\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 	
 				gisCode = theNaifNum * 100 + 14; /*# Sinusoidal, ocentric, clon=0*/
 				fprintf(f1, "%d,PROJCS[\"%s_Sinusoidal\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Sinusoidal\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
@@ -221,9 +213,9 @@ int main(int argc, char * argv[])
 				fprintf(f1, "%d,PROJCS[\"%s_Orthographic_AUTO\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Orthographic\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Longitude_Of_Center\",0.0],PARAMETER[\"Latitude_Of_Center\",90.0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 	
 				gisCode = theNaifNum * 100 + 68; /*# Equidistant_Cylindrical, ocentric*/
-				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical_AUTO\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equidistant_Cylindrical\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical_AUTO\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equirectangular\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 69; /*# Equidistant_Cylindrical, ographic*/
-				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical_AUTO\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equidistant_Cylindrical\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical_AUTO\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equirectangular\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 	
 				gisCode = theNaifNum * 100 + 70; /*# Lambert_Conformal_Conic, ocentric*/
 				fprintf(f1, "%d,PROJCS[\"%s_Lambert_Conformal_Conic_AUTO\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Lambert_Conformal_Conic\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",-20],PARAMETER[\"Standard_Parallel_2\",20],PARAMETER[\"Latitude_Of_Origin\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
@@ -265,6 +257,5 @@ int main(int argc, char * argv[])
 	}
 	fclose(stream);
 	fclose(f1);
-	fclose(f2);
 	return(EXIT_SUCCESS);
 }
