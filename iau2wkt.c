@@ -78,6 +78,8 @@ int main(int argc, char * argv[])
 	}
 	/*Read input file line by line*/
 	char line[1024];
+	char bigline[1024];
+	char tosystem[1024];
 
 	int theNaifNum = 0;
 	char * theTarget = NULL;
@@ -148,7 +150,12 @@ int main(int argc, char * argv[])
 	
 				/*#Static Projections*/
 				gisCode = theNaifNum * 100 + 10; /*# Equirectangular, ocentric, clon=0*/
-				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equidistant_Cylindrical\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				sprintf(bigline, "%d,PROJCS[\"%s_Equidistant_Cylindrical\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equidistant_Cylindrical\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1,"%s",bigline);
+				fprintf(f2,"# Equirectangular, ocentric, clon=0\n");
+				fprintf(f2,"<%d> ",gisCode);
+				sprintf(tosystem,"echo $(gdalsrsinfo %s -o proj4) >> %s", bigline, argv[3]);
+				system(tosystem);
 				gisCode = theNaifNum * 100 + 11; /*# Equirectangular, ographic, clon=0*/
 				fprintf(f1, "%d,PROJCS[\"%s_Equidistant_Cylindrical\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Equidistant_Cylindrical\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],PARAMETER[\"Standard_Parallel_1\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 12; /*# Equirectangular, ocentric, clon=180*/
