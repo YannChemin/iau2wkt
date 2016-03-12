@@ -25,7 +25,7 @@ paste temp2.csv temp.proj4 > out2000.csv
 #Add comments 
 paste tempIAU2000comments.csv out2000.csv > outfull.csv
 #Finally, add newline before "<"
-sed "s/\t</\n</" outfull.csv > iau2000.csv
+sed "s/\t</\n</" outfull.csv > iau2000.epsgprojstyle
 
 #IAU2009
 #Collect Descriptions
@@ -53,5 +53,5 @@ paste temp2.csv temp.proj4 > out2009.csv
 #Add comments 
 paste tempIAU2009comments.csv out2009.csv > outfull.csv
 #Finally, add newline before "<"
-sed "s/\t</\n</" outfull.csv > iau2009.csv
+sed "s/\t</\n</" outfull.csv > iau2009.epsgprojstyle
 
