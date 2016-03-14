@@ -209,36 +209,36 @@ int main(int argc, char * argv[])
 				gisCode = theNaifNum * 100 + 22; /*# Mollweide, ocentric, clon=0*/
 
 					fprintf(f1,"# Mollweide %s Areocentric, clon=0\n", theTarget);
-				fprintf(f1, "%d,PROJCS[\"%s_Sinusoidal\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Mollweide\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Mollweide\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Mollweide\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 23; /*# Mollweide, ographic, clon=0*/
 
 					fprintf(f1,"# Mollweide %s Areographic, clon=0\n", theTarget);
-				fprintf(f1, "%d,PROJCS[\"%s_Sinusoidal\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Mollweide\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Mollweide\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Mollweide\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 24; /*# Mollweide, ocentric, clon=180*/
 
 					fprintf(f1,"# Mollweide %s Areocentric, clon=180\n", theTarget);
-				fprintf(f1, "%d,PROJCS[\"%s_Sinusoidal\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Mollweide\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Mollweide\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Mollweide\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 25; /*# Mollweide, ocentric, clon=180*/
 
 					fprintf(f1,"# Mollweide %s Areographic, clon=180\n", theTarget);
-				fprintf(f1, "%d,PROJCS[\"%s_Sinusoidal\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Mollweide\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Mollweide\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Mollweide\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 	
 				gisCode = theNaifNum * 100 + 26; /*# Robinson, ocentric, clon=0*/
 
 					fprintf(f1,"# Robinson %s Areocentric, clon=0\n", theTarget);
-				fprintf(f1, "%d,PROJCS[\"%s_Sinusoidal\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Robinson\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Robinson\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Robinson\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 27; /*# Robinson, ographic, clon=0*/
 
 					fprintf(f1,"# Robinson %s Areographic, clon=0\n", theTarget);
-				fprintf(f1, "%d,PROJCS[\"%s_Sinusoidal\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Robinson\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Robinson\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Robinson\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",0],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 28; /*# Robinson, ocentric, clon=180*/
 
 					fprintf(f1,"# Robinson %s Areocentric, clon=180\n", theTarget);
-				fprintf(f1, "%d,PROJCS[\"%s_Sinusoidal\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Robinson\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Robinson\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Robinson\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 				gisCode = theNaifNum * 100 + 29; /*# Robinson, ographic, clon=180*/
 
 					fprintf(f1,"# Robinson %s Areographic, clon=180\n", theTarget);
-				fprintf(f1, "%d,PROJCS[\"%s_Sinusoidal\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Robinson\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
+				fprintf(f1, "%d,PROJCS[\"%s_Robinson\",GEOGCS[\"%s %d\",DATUM[\"D_%s_%d\",SPHEROID[\"%s_%d_IAU_IAG\",%f,%f]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Decimal_Degree\",0.0174532925199433]],PROJECTION[\"Robinson\"],PARAMETER[\"False_Easting\",0],PARAMETER[\"False_Northing\",0],PARAMETER[\"Central_Meridian\",180],UNIT[\"Meter\",1],AUTHORITY[\"IAU%d\",\"%d\"]]\n",gisCode,theTarget,theTarget,theYear,theTarget,theYear,theTarget,theYear,theA,flattening,theYear,gisCode);
 	
 				/*#AUTO Projections*/
 				gisCode = theNaifNum * 100 + 60; /*# Sinusoidal, ocentric*/
